@@ -19,42 +19,55 @@
 ### Association
 
 - has_many :items
-- belongs_to :destination
+- has_many :orders
 
 ## items テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| price         | string     | null: false                    |
-| description   | string     | null: false                    |
-| category      | string     | null: false                    |
-| item_condition| string     | null: false                    |
-| commission    | string     | null: false                    |
-| prefecture    | string     | null: false                    |
-| shipping_fee  | string     | null: false                    |
-| shipping_days | string     | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| price            | integer    | null: false                    |
+| description      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| item_condition_id| integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| shipping_fee_id  | integer    | null: false                    |
+| shipping_days_id | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
+- has_one :order
 
-## destination テーブル
+## orders テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| post_code    | string     | null: false                    |
-| prefecture   | string     | null: false                    |
-| city         | string     | null: false                    |
-| address      | string     | null: false                    |
-| building_name| string     |                                |
-| phone_number | string     | null: false                    |
 | user         | references | null: false, foreign_key: true |
 | item         | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :items
+- belongs_to :item
+- has_one :destination
+
+## destinations テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| post_code    | string     | null: false                    |
+| prefecture_id| integer    | null: false                    |
+| city         | string     | null: false                    |
+| address      | string     | null: false                    |
+| building_name| string     |                                |
+| phone_number | string     | null: false                    |
+
+### Association
+
+- belongs_to :order
+
+
+ID/PASS
+ID:ariyoshi
+pass:38760
