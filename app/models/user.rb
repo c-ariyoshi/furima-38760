@@ -12,5 +12,6 @@ class User < ApplicationRecord
          validates :birth_day, presence: true
          validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '半角英数を両方含む必要があります'} 
          
-         
+         has_many :items        
+
 end
