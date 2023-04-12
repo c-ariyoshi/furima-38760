@@ -134,6 +134,8 @@
         <%= @items.each do |item|%>
         <div class='item-img-content'>
           <%= image_tag "item-sample.png", class: "item-img" %>
+          <%# <%= image_tag item.image, class: "item-img" if @item.image.attached? %> 
+
 
           <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
